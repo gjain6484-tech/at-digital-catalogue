@@ -1,4 +1,4 @@
-# AT Digital Catalogue
+# Aarti Trading Digital Catalogue
 
 Free QR-accessible digital product catalogue with a public storefront and admin panel.
 

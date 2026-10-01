@@ -2,6 +2,125 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: light; }
-body { margin: 0; background: #f8fafc; color: #0f172a; }
-* { box-sizing: border-box; }
+:root {
+  color-scheme: light;
+  --canvas: #f7f6f3;
+  --bone: #efede7;
+  --paper: #fdfdfc;
+  --ink: #20201e;
+  --muted: #777570;
+  --line: #e3e1dc;
+  --sage: #edf3ec;
+  --sage-ink: #346538;
+  --rose: #fdebec;
+  --rose-ink: #8a3c39;
+  --sand: #fbf3db;
+  --sand-ink: #7a5d17;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #ded9ce;
+  color: var(--ink);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid #5d5b56;
+  outline-offset: 3px;
+}
+
+.font-display {
+  font-family: "Iowan Old Style", Baskerville, "Times New Roman", serif;
+}
+
+.editorial-grid {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath d='M48 0H0V48' fill='none' stroke='%2320201e' stroke-opacity='.04'/%3E%3C/svg%3E");
+  background-size: 48px 48px;
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.reveal {
+  animation: reveal 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.dialog-backdrop {
+  animation: fade-in 180ms ease-out both;
+}
+
+.dialog-panel {
+  animation: dialog-in 300ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
