@@ -2,7 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Aarti Trading Catalogue",
+  title: "Aarti Trading Product Catalogue",
   description: "Browse the Aarti Trading product catalogue.",
 };
 
