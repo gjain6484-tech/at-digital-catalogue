@@ -57,3 +57,19 @@ create policy "Admins can delete products"
 on public.products for delete
 to authenticated
 using (auth.uid() is not null);
+
+insert into storage.buckets (id, name, public)
+values ('product-images', 'product-images', true)
+on conflict (id) do update set public = true;
+
+drop policy if exists "Authenticated users can upload product images" on storage.objects;
+create policy "Authenticated users can upload product images"
+on storage.objects for insert
+to authenticated
+with check (bucket_id = 'product-images' and auth.uid() is not null);
+
+drop policy if exists "Authenticated users can delete product images" on storage.objects;
+create policy "Authenticated users can delete product images"
+on storage.objects for delete
+to authenticated
+using (bucket_id = 'product-images' and auth.uid() is not null);
