@@ -50,12 +50,12 @@ export default function Home() {
       <section id="collection" className="scroll-mt-4 bg-paper">
         <div className="mx-auto max-w-[1400px] px-5 py-10 sm:px-8 sm:py-14 lg:px-12">
           <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
-            <div><p className="text-[10px] font-medium uppercase tracking-[0.16em] text-muted">The collection</p><h2 className="mt-3 font-display text-4xl tracking-[-0.035em] text-ink sm:text-5xl">Browse all products</h2></div>
+            <div><p className="text-[10px] font-medium uppercase tracking-[0.16em] text-accent">The collection</p><h2 className="mt-3 font-display text-4xl tracking-[-0.035em] text-ink sm:text-5xl">Browse all products</h2></div>
             <p className="font-mono text-xs uppercase tracking-[0.1em] text-muted">{filtered.length.toString().padStart(2, "0")} pieces</p>
           </div>
           <div className="mt-12 grid gap-8 lg:grid-cols-[minmax(320px,0.8fr)_1.2fr] lg:items-end"><SearchBar value={query} onChange={setQuery} inputRef={searchRef} /><CategoryFilter categories={categories} selected={category} onChange={setCategory} /></div>
           <div className="mt-14 sm:mt-20">
-            {loading ? <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" aria-label="Loading catalogue">{[0, 1, 2].map((item) => <div key={item} className="animate-pulse"><div className="aspect-[4/5] rounded-lg bg-bone" /><div className="mt-4 h-4 w-2/3 bg-bone" /></div>)}</div> : error ? <EmptyState title="Catalogue unavailable" description={error} /> : filtered.length === 0 ? <EmptyState title="No products found" description="Try a different search term or choose another category." /> : <ProductGrid products={filtered} onSelect={setSelectedProduct} />}
+            {loading ? <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5" aria-label="Loading catalogue">{[0, 1, 2, 3, 4].map((item) => <div key={item} className="animate-pulse"><div className="aspect-[4/5] rounded-lg bg-bone" /><div className="mt-4 h-4 w-2/3 bg-bone" /></div>)}</div> : error ? <EmptyState title="Catalogue unavailable" description={error} /> : filtered.length === 0 ? <EmptyState title="No products found" description="Try a different search term or choose another category." /> : <ProductGrid products={filtered} onSelect={setSelectedProduct} />}
           </div>
         </div>
       </section>

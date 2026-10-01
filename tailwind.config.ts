@@ -11,6 +11,9 @@ const config: Config = {
         muted: "var(--muted)",
         line: "var(--line)",
         paper: "var(--paper)",
+        accent: "var(--accent)",
+        "accent-dark": "var(--accent-dark)",
+        "accent-soft": "var(--accent-soft)",
       },
       fontFamily: {
         sans: ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"],

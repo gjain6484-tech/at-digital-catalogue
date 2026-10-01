@@ -4,12 +4,15 @@
 
 :root {
   color-scheme: light;
-  --canvas: #f7f6f3;
-  --bone: #efede7;
-  --paper: #fdfdfc;
-  --ink: #20201e;
-  --muted: #777570;
-  --line: #e3e1dc;
+  --canvas: #f2ecdf;
+  --bone: #e8dfcf;
+  --paper: #fffdf8;
+  --ink: #1f2b24;
+  --muted: #667069;
+  --line: #d8d0c2;
+  --accent: #a44f32;
+  --accent-dark: #7f3d28;
+  --accent-soft: #f3dfd5;
   --sage: #edf3ec;
   --sage-ink: #346538;
   --rose: #fdebec;
@@ -35,7 +38,7 @@ body {
 }
 
 ::selection {
-  background: #ded9ce;
+  background: var(--accent-soft);
   color: var(--ink);
 }
 
@@ -55,7 +58,7 @@ select {
 }
 
 :focus-visible {
-  outline: 2px solid #5d5b56;
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 

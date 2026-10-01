@@ -5,7 +5,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 const variants = {
-  primary: "border-ink bg-ink text-white hover:bg-[#353532]",
+  primary: "border-accent bg-accent text-white hover:border-accent-dark hover:bg-accent-dark",
   secondary: "border-line bg-paper text-ink hover:bg-bone",
   quiet: "border-transparent bg-transparent text-muted hover:text-ink",
   danger: "border-[#dcc5c3] bg-[#fdebec] text-[#8a3c39] hover:bg-[#f8dddd]",
