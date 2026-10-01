@@ -10,6 +10,11 @@ create table if not exists public.products (
   updated_at timestamptz not null default now()
 );
 
+-- Explicit table privileges are required in addition to RLS policies.
+grant usage on schema public to anon, authenticated;
+grant select on public.products to anon;
+grant select, insert, update, delete on public.products to authenticated;
+
 create or replace function public.set_updated_at()
 returns trigger
 language plpgsql
