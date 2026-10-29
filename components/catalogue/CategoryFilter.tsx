@@ -2,13 +2,14 @@ type CategoryFilterProps = { categories: string[]; selected: string; onChange: (
 
 export function CategoryFilter({ categories, selected, onChange }: CategoryFilterProps) {
   return (
-    <div className="scrollbar-none -mx-5 overflow-x-auto px-5 sm:mx-0 sm:px-0">
-      <div className="flex min-w-max border-b border-line" role="list" aria-label="Product categories">
+    <fieldset className="min-w-0">
+      <legend className="mb-2 text-xs font-bold text-muted">Categories</legend>
+      <div className="flex flex-wrap gap-2" aria-label="Product categories">
         {categories.map((category) => {
           const active = selected === category;
-          return <button key={category} type="button" aria-pressed={active} onClick={() => onChange(category)} className={`relative min-h-12 px-4 text-sm transition first:pl-0 ${active ? "font-medium text-accent" : "text-muted hover:text-ink"}`}>{category}{active && <span className="absolute inset-x-4 bottom-[-1px] h-0.5 bg-accent first:left-0" />}</button>;
+          return <button key={category} type="button" aria-pressed={active} onClick={() => onChange(category)} className={`min-h-10 rounded-full border px-3.5 text-sm font-semibold transition active:scale-[0.98] ${active ? "border-accent bg-accent text-white" : "border-line bg-paper text-muted hover:border-accent hover:text-accent"}`}>{category}</button>;
         })}
       </div>
-    </div>
+    </fieldset>
   );
 }

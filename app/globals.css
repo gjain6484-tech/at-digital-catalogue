@@ -4,15 +4,15 @@
 
 :root {
   color-scheme: light;
-  --canvas: #f2ecdf;
-  --bone: #e8dfcf;
-  --paper: #fffdf8;
-  --ink: #1f2b24;
-  --muted: #667069;
-  --line: #d8d0c2;
-  --accent: #a44f32;
-  --accent-dark: #7f3d28;
-  --accent-soft: #f3dfd5;
+  --canvas: #eef5f1;
+  --bone: #dceae3;
+  --paper: #fcfffd;
+  --ink: #13251f;
+  --muted: #60746c;
+  --line: #c9dbd2;
+  --accent: #f2633a;
+  --accent-dark: #c64320;
+  --accent-soft: #ffe2d8;
   --sage: #edf3ec;
   --sage-ink: #346538;
   --rose: #fdebec;
@@ -35,6 +35,8 @@ body {
   color: var(--ink);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
+  background-image: radial-gradient(circle at 10% 0%, rgba(242, 99, 58, 0.12), transparent 32rem);
+  background-attachment: fixed;
 }
 
 ::selection {
@@ -63,11 +65,12 @@ select {
 }
 
 .font-display {
-  font-family: "Iowan Old Style", Baskerville, "Times New Roman", serif;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
 }
 
 .editorial-grid {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath d='M48 0H0V48' fill='none' stroke='%2320201e' stroke-opacity='.04'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath d='M48 0H0V48' fill='none' stroke='%23f2633a' stroke-opacity='.09'/%3E%3C/svg%3E");
   background-size: 48px 48px;
 }
 
@@ -125,5 +128,24 @@ select {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --canvas: #0b1512;
+    --bone: #15241f;
+    --paper: #101d19;
+    --ink: #f2faf6;
+    --muted: #9eb2aa;
+    --line: #284038;
+    --accent: #ff815d;
+    --accent-dark: #ffa186;
+    --accent-soft: #40231b;
+  }
+
+  body {
+    background-image: radial-gradient(circle at 10% 0%, rgba(255, 129, 93, 0.14), transparent 34rem);
   }
 }

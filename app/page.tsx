@@ -47,19 +47,19 @@ export default function Home() {
   return (
     <main id="top" className="min-h-screen overflow-hidden bg-canvas">
       <CatalogueHeader onSearchClick={focusSearch} />
-      <section id="collection" className="scroll-mt-4 bg-paper">
-        <div className="mx-auto max-w-[1400px] px-5 py-10 sm:px-8 sm:py-14 lg:px-12">
-          <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
-            <div><p className="text-[10px] font-medium uppercase tracking-[0.16em] text-accent">The collection</p><h2 className="mt-3 font-display text-4xl tracking-[-0.035em] text-ink sm:text-5xl">Browse all products</h2></div>
-            <p className="font-mono text-xs uppercase tracking-[0.1em] text-muted">{filtered.length.toString().padStart(2, "0")} pieces</p>
+      <section id="collection" className="scroll-mt-4 bg-transparent">
+        <div className="mx-auto max-w-[1400px] px-5 py-8 sm:px-8 sm:py-10 lg:px-12">
+          <div className="grid gap-5 lg:grid-cols-[1fr_auto] lg:items-end">
+            <div><h1 className="font-display text-3xl tracking-[-0.035em] text-ink sm:text-4xl">All products</h1><p className="mt-2 max-w-xl text-sm leading-6 text-muted">Browse the catalogue and send any product directly to Aarti Trading on WhatsApp.</p></div>
+            <p className="rounded-full border border-line bg-paper px-4 py-2 text-xs font-bold text-muted">{filtered.length} products</p>
           </div>
-          <div className="mt-12 grid gap-8 lg:grid-cols-[minmax(320px,0.8fr)_1.2fr] lg:items-end"><SearchBar value={query} onChange={setQuery} inputRef={searchRef} /><CategoryFilter categories={categories} selected={category} onChange={setCategory} /></div>
-          <div className="mt-14 sm:mt-20">
-            {loading ? <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5" aria-label="Loading catalogue">{[0, 1, 2, 3, 4].map((item) => <div key={item} className="animate-pulse"><div className="aspect-[4/5] rounded-lg bg-bone" /><div className="mt-4 h-4 w-2/3 bg-bone" /></div>)}</div> : error ? <EmptyState title="Catalogue unavailable" description={error} /> : filtered.length === 0 ? <EmptyState title="No products found" description="Try a different search term or choose another category." /> : <ProductGrid products={filtered} onSelect={setSelectedProduct} />}
+          <div className="mt-7 grid gap-5 rounded-[24px] border border-line bg-paper p-4 shadow-[0_12px_40px_rgba(242,99,58,0.08)] lg:grid-cols-[minmax(320px,0.8fr)_1.2fr] lg:items-center"><SearchBar value={query} onChange={setQuery} inputRef={searchRef} /><CategoryFilter categories={categories} selected={category} onChange={setCategory} /></div>
+          <div className="mt-10">
+            {loading ? <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-5 lg:gap-5" aria-label="Loading catalogue">{[0, 1, 2, 3, 4].map((item) => <div key={item} className="animate-pulse"><div className="aspect-square rounded-[18px] bg-bone" /><div className="mt-3 h-4 w-2/3 bg-bone" /></div>)}</div> : error ? <EmptyState title="Catalogue unavailable" description={error} /> : filtered.length === 0 ? <EmptyState title="No products found" description="Try a different search term or choose another category." /> : <ProductGrid products={filtered} onSelect={setSelectedProduct} />}
           </div>
         </div>
       </section>
-      <footer className="border-t border-line bg-canvas"><div className="mx-auto flex max-w-[1400px] flex-col gap-3 px-5 py-8 text-xs text-muted sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12"><p>Aarti Trading</p><p>Product availability may change.</p></div></footer>
+      <footer className="mt-10 bg-[#13251f] text-white"><div className="mx-auto flex max-w-[1400px] flex-col gap-3 px-5 py-8 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12"><p className="font-semibold text-white">Aarti Trading</p><p>Product availability may change.</p></div></footer>
       <ProductDetail product={selectedProduct} onClose={() => setSelectedProduct(null)} />
     </main>
   );
